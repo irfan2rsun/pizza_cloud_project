@@ -20,7 +20,7 @@ public class OrderController {
     }
 
     @GetMapping("/current")
-    public String orderForm(UUID pizzaId, Model model) {
+    public String orderForm(@RequestParam UUID pizzaId, Model model) {
 
         PizzaOrder pizzaOrder = new PizzaOrder();
 
