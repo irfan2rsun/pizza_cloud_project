@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Pizza Cloud</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <br>
+
+    <div class="row">
+
+        <div class="col-xl-6 col-lg-6 col-md-6">
+            <h1>Order your pizza!</h1>
+            <img th:src="@{/images/pizza.png}"/>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6">
+            <h2><a class="btn btn-danger" th:href="@{/design}" id="another">Design another pizza</a></h2>
+        </div>
+
+    </div>
+
+    <form method="post" th:action="@{/orders}" th:object="${pizzaOrder}">
+
+        <div class="form-group">
+
+            <h3>Deliver my pizza to...</h3>
+
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <label><b>Name:</b></label>
+                    <input class="form-control" type="text" th:field="*{deliveryName}"/>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <label><b>Street address:</b></label>
+                    <input class="form-control" type="text" th:field="*{deliveryStreet}"/>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <label><b>City:</b></label>
+                    <input class="form-control" type="text" th:field="*{deliveryCity}"/>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <label><b>State:</b></label>
+                    <input class="form-control" type="text" th:field="*{deliveryState}"/>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <label><b>Zip code:</b></label>
+                    <input class="form-control" type="text" th:field="*{deliveryZip}"/>
+                </div>
+
+            </div>
+
+            <br>
+
+            <h3>Here's how I'll pay...</h3>
+
+            <div class="row">
+
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <label><b>Credit Card Number:</b></label>
+                    <input class="form-control" type="text" th:field="*{ccNumber}"/>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <label><b>Expiration:</b></label>
+                    <input class="form-control" type="text" th:field="*{ccExpiration}"/>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <label><b>CVV:</b></label>
+                    <input class="form-control" type="text" th:field="*{ccCVV}"/>
+                </div>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <button type="submit" class="btn btn-success">Submit Order</button>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
