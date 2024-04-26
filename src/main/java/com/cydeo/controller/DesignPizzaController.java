@@ -15,9 +15,13 @@ import java.util.UUID;
 @RequestMapping("/design")
 public class DesignPizzaController {
 
-    private PizzaRepository pizzaRepository;
+    private final PizzaRepository pizzaRepository;
 
-    @GetMapping
+    public DesignPizzaController(PizzaRepository pizzaRepository) {
+        this.pizzaRepository = pizzaRepository;
+    }
+
+    @GetMapping   // localhost:8080/design
     public String showDesignForm(Model model) {
 
         model.addAttribute("pizza", new Pizza());
@@ -29,7 +33,7 @@ public class DesignPizzaController {
 
     }
 
-    @PostMapping("/createPizza")
+    @PostMapping("/createPizza")  //localhost:8080/design/createPizza
     public String processPizza(Pizza pizza) {
 
         pizza.setId(UUID.randomUUID());
