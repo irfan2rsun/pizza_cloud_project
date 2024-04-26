@@ -1,11 +1,13 @@
 package com.cydeo.repository;
 
 import com.cydeo.model.Pizza;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Component
 public class PizzaRepository {
 
     private static List<Pizza> pizzaList = new ArrayList<>();
